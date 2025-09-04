@@ -1,0 +1,165 @@
+    .mmain {
+      margin-top: -19px;
+    }
+
+    .hh {
+      font-size: 28px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #9a5ee4;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* outer scroller */
+    .scroller {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    /* inner wrapper that scrolls */
+    .scroller-inner {
+      display: flex;
+      gap: 30px;
+      animation: scroll-left 40s linear infinite;
+      will-change: transform;
+    }
+
+    .scroller:hover .scroller-inner {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll-left {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .photo-card {
+      position: relative;
+      flex: 0 0 auto;
+      width: 320px;
+      height: 420px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      background: #fff;
+    }
+
+    .photo-card:hover {
+      transform: scale(1.05);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .photo-name {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    /* ===================== MEDIA QUERIES ===================== */
+
+    /* Tablets */
+    @media (max-width: 992px) {
+      body {
+        padding: 20px;
+      }
+
+      .hh {
+        font-size: 24px;
+      }
+
+      .photo-card {
+        width: 250px;
+        height: 340px;
+      }
+
+      .photo-name {
+        font-size: 16px;
+        padding: 12px;
+      }
+    }
+
+    /* Mobile Large */
+    @media (max-width: 768px) {
+      .hh {
+        font-size: 22px;
+      }
+
+      .photo-card {
+        width: 200px;
+        height: 280px;
+      }
+
+      .scroller-inner {
+        gap: 20px;
+        animation-duration: 30s;
+      }
+
+      .photo-name {
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
+
+    /* 📱 Mobile Small: show only ONE photo at a time */
+    @media (max-width: 480px) {
+      body {
+        padding: 15px;
+      }
+
+      .hh {
+        font-size: 20px;
+      }
+
+      .subtitle {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .scroller {
+        display: flex;
+        justify-content: center;
+      }
+
+      .scroller-inner {
+        gap: 15px;
+        animation-duration: 25s;
+      }
+
+      .photo-card {
+        width: 90%;   /* takes almost full width */
+        max-width: 300px;
+        height: 260px; /* shrink height */
+        margin: 0 auto;
+      }
+
+      .photo-name {
+        font-size: 14px;
+        padding: 8px;
+      }
+    }
